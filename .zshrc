@@ -109,11 +109,7 @@ bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
 bindkey "^R" history-incremental-search-backward
 
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-	startx
-fi
-
-[[ $TERM != "screen" ]] #&& exec tmux
+[[ $TERM != "screen" ]] && exec tmux
 
 GTK_IM_MODULE=ibus
 QT_IM_MODULE=ibus
