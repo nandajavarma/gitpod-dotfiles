@@ -20,10 +20,11 @@ mkdir -p .doom.d/modules/private
 cd .doom.d/modules/private
 rm -rf spacemacs
 git clone https://github.com/chenyanming/spacemacs_module_for_doom spacemacs/
+
+~/.emacs.d/bin/doom sync &
+
+git clone git@github.com:nandajavarma/notes.git  $HOME/.deft
 cd --
 
 echo 'alias k="kubectl"' >> ~/.zshrc
 echo 'autoload -Uz compinit && compinit' >> ~/.zshrc
-
-zsh
-source ~/.zshrc
