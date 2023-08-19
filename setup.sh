@@ -24,3 +24,6 @@ cd --
 
 echo 'alias k="kubectl"' >> ~/.zshrc
 echo 'autoload -Uz compinit && compinit' >> ~/.zshrc
+
+zsh
+source ~/.zshrc
