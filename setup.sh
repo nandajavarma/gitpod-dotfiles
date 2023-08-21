@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
+git config --global push.autoSetupRemote true
+
 rm -rf ~/.zshrc ~/.vimrc ~/.tmux.conf ~/.vim/bundle/Vundle.vim ~/.oh-my-zsh ~/.emacs.d
 
 ln -s ~/.dotfiles/.vimrc ~/ || true
 ln -s ~/.dotfiles/.tmux.conf ~/ || true
 
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+
+mkdir -p ~/.ssh
+ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 ln -s ~/.dotfiles/.zshrc ~/ || true
 
@@ -19,12 +24,13 @@ ln -s ~/.dotfiles/.emacs.d ~/ || true
 mkdir -p .doom.d/modules/private
 cd .doom.d/modules/private
 rm -rf spacemacs
-git clone https://github.com/chenyanming/spacemacs_module_for_doom spacemacs/
 
-~/.emacs.d/bin/doom sync &
+git clone https://github.com/chenyanming/spacemacs_module_for_doom spacemacs/
 
 git clone git@github.com:nandajavarma/notes.git  $HOME/.deft
 cd --
 
 echo 'alias k="kubectl"' >> ~/.zshrc
 echo 'autoload -Uz compinit && compinit' >> ~/.zshrc
+
+~/.emacs.d/bin/doom sync &
