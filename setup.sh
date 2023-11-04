@@ -27,10 +27,17 @@ rm -rf spacemacs
 
 git clone https://github.com/chenyanming/spacemacs_module_for_doom spacemacs/
 
-git clone git@github.com:nandajavarma/notes.git  $HOME/.deft
-cd --
-
 echo 'alias k="kubectl"' >> ~/.zshrc
 echo 'autoload -Uz compinit && compinit' >> ~/.zshrc
 
+# hack to be able to clone private repo https://github.com/gitpod-io/gitpod/issues/1191#issuecomment-855484471
+git config --global url."https://".insteadOf git://
+git config --global url."https://github.com/".insteadOf ssh://git@github.com/
+git config --global url."https://github.com/".insteadOf git@github.com:
+
 ~/.emacs.d/bin/doom sync &
+
+git clone git@github.com:nandajavarma/notes.git  $HOME/.deft
+cd --
+
+
