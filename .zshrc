@@ -128,3 +128,5 @@ export PATH=$PATH:$HOME/.pulumi/bin:$HOME/Workspace/zig-linux-x86_64-0.10.0/
 export WORKON_HOME=~/.virtualenvs
 
 export HMD_API_ACCESS_TOKEN=5KNCJ8IUPBYZHLJSN9X6X9I1E4FN5KM2XGRVTBACG28RO2ZHLI
+alias k="kubectl"
+autoload -Uz compinit && compinit
