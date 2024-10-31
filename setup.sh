@@ -12,6 +12,8 @@ git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 
 ln -s ~/.dotfiles/.zshrc ~/ || true
 
+git config --global push.autoSetupRemote true
+
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
