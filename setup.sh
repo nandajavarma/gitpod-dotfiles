@@ -5,6 +5,9 @@ git config --global push.autoSetupRemote true
 
 rm -rf ~/.zshrc ~/.vimrc ~/.tmux.conf ~/.vim/bundle/Vundle.vim ~/.oh-my-zsh ~/.emacs.d
 
+sudo apt update
+sudo apt install -y tmux vim
+
 ln -s ~/.dotfiles/.vimrc ~/ || true
 ln -s ~/.dotfiles/.tmux.conf ~/ || true
 
