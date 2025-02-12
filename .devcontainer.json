@@ -1,6 +1,6 @@
 {
     "name": "Development Environment",
-    "image": "nandajavarma/devcontainer-base:latest",
+    "image": "docker.io/nandajavarma/devcontainer-base:latest",
 
     // Configure VS Code settings
     "customizations": {
