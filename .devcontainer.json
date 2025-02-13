@@ -1,6 +1,6 @@
 {
     "name": "Development Environment",
-    "image": "docker.io/nandajavarma/devcontainer-base:latest",
+    "image": "377062375539.dkr.ecr.eu-central-1.amazonaws.com/devcontainer-base:latest",
 
     // Configure VS Code settings
     "customizations": {
