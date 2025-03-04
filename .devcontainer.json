@@ -1,4 +1,4 @@
 {
     "name": "Development Environment",
-    "dockerfile": "Dockerfile"
+    "dockerFile": "Dockerfile"
 }
