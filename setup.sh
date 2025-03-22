@@ -26,5 +26,6 @@ git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 git clone https://github.com/ohmyzsh/ohmyzsh.git /home/vscode/.oh-my-zsh
 
 mkdir -p ~/.ssh
-ssh-keyscan github.com >> ~/.ssh/known_hosts
-ssh-keyscan github.com >> /home/vscode/.ssh/known_hosts
+ssh-keyscan github.com >> ~/.ssh/known_hosts || echo "could not create known_hosts"
+mkdir -p /home/vscode/.ssh
+ssh-keyscan github.com >> /home/vscode/.ssh/known_hosts || echo "could not create known_hosts for remote user"
