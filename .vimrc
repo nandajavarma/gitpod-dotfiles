@@ -38,7 +38,6 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fireplace'
 Bundle 'eiginn/netrw'
 " original repos on GitHub
-Bundle 'ryanss/vim-hackernews'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'terryma/vim-multiple-cursors'
