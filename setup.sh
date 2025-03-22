@@ -28,16 +28,15 @@ fi
 sudo apt update
 sudo apt install -y tmux vim
 
-git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-git clone https://github.com/ohmyzsh/ohmyzsh.git /home/vscode/.oh-my-zsh
+git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh || echo "could not clone ohmyzsh"
+git clone https://github.com/ohmyzsh/ohmyzsh.git /home/vscode/.oh-my-zsh || echo "could not clone ohmyzsh for remote user"
 
 mkdir -p ~/.ssh
 ssh-keyscan github.com >> ~/.ssh/known_hosts || echo "could not create known_hosts"
 mkdir -p /home/vscode/.ssh
 ssh-keyscan github.com >> /home/vscode/.ssh/known_hosts || echo "could not create known_hosts for remote user"
 
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-git clone https://github.com/VundleVim/Vundle.vim.git /home/vscode/.vim/bundle/Vundle.vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim || echo "could not clone Vundle.vim"
+git clone https://github.com/VundleVim/Vundle.vim.git /home/vscode/.vim/bundle/Vundle.vim || echo "could not clone Vundle.vim for remote user"
 
-vim +PluginInstall +qall
 vim +PluginInstall +qall
