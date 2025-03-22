@@ -17,10 +17,13 @@ cp -r ~/dotfiles/.tmux.conf ~/ || echo "could not create tmux.conf for root user
 cp -r ~/dotfiles/.zshrc /home/vscode/ || echo "could not create zshrc for remote user"
 cp -r ~/dotfiles/.zshrc ~/ || echo "could not create zshrc for root user"
 
-for dir in /workspace/*/; do
-    mkdir -p "${dir}.cursor/rules"
-    cp -r ~/dotfiles/.cursor/rules/* "${dir}.cursor/rules/." || echo "could not create cursor rules in ${dir}"
-done
+if [ -n "$(ls -A /workspaces 2>/dev/null)" ]; then
+    for dir in /workspaces/*/; do
+        echo -e "\033[32mcreating cursor rules in ${dir}\033[0m"
+        mkdir -p "${dir}.cursor/rules" || echo "could not create cursor rules in ${dir}"
+        cp -r ~/dotfiles/.cursor/rules/* "${dir}.cursor/rules/." || echo "could not create cursor rules in ${dir}"
+    done
+fi
 
 sudo apt update
 sudo apt install -y tmux vim
