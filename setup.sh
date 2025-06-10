@@ -25,18 +25,35 @@ if [ -n "$(ls -A /workspaces 2>/dev/null)" ]; then
     done
 fi
 
-sudo apt update
 sudo apt install -y tmux vim
 
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh || echo "could not clone ohmyzsh"
 git clone https://github.com/ohmyzsh/ohmyzsh.git /home/vscode/.oh-my-zsh || echo "could not clone ohmyzsh for remote user"
 
-mkdir -p ~/.ssh
+mkdir -p ~/.ssh || echo "could not create ssh directory"
 ssh-keyscan github.com >> ~/.ssh/known_hosts || echo "could not create known_hosts"
-mkdir -p /home/vscode/.ssh
+mkdir -p /home/vscode/.ssh || echo "could not create ssh directory for remote user"
 ssh-keyscan github.com >> /home/vscode/.ssh/known_hosts || echo "could not create known_hosts for remote user"
 
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim || echo "could not clone Vundle.vim"
-git clone https://github.com/VundleVim/Vundle.vim.git /home/vscode/.vim/bundle/Vundle.vim || echo "could not clone Vundle.vim for remote user"
 
-vim +PluginInstall +qall
+if ! command -v npm &> /dev/null; then
+    echo "Skipping claude code install, npm not found"
+    return 0
+fi
+
+if command -v claude &> /dev/null; then
+    echo "Claude Code is already installed"
+    return 0
+fi
+
+echo "Installing Claude Code..."
+npm install -g @anthropic-ai/claude-code
+claude config set -g theme dark
+
+echo "Copying Claude config from root..."
+sudo cp /root/.claude.json ~/.claude.json || {
+    echo "No Claude config found in root, skipping copy"
+    return 0
+}
+
+sudo chown "$(id -u):$(id -g)" ~/.claude.json
