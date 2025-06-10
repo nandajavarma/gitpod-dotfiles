@@ -25,7 +25,7 @@ if [ -n "$(ls -A /workspaces 2>/dev/null)" ]; then
     done
 fi
 
-sudo apt install -y tmux vim
+sudo apt update && sudo apt install -y tmux vim
 
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh || echo "could not clone ohmyzsh"
 git clone https://github.com/ohmyzsh/ohmyzsh.git /home/vscode/.oh-my-zsh || echo "could not clone ohmyzsh for remote user"
