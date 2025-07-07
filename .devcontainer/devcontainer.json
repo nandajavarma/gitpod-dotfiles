@@ -4,7 +4,7 @@
 // See https://aka.ms/devcontainer.json for more information.
 {
 	"name": "Gitpod",
-    "image": "377062375539.dkr.ecr.eu-central-1.amazonaws.com/devcontainer-base:latest"
+    "image": "377062375539.dkr.ecr.eu-central-1.amazonaws.com/devcontainer-base:dev"
 	// Use "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
 	// instead of the build to use a pre-built image.
 	// Features add additional features to your environment. See https://containers.dev/features
